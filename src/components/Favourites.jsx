@@ -1,6 +1,7 @@
 import { Col, Row, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
 
 const Favourites = () => {
   const favouriteList = useSelector((state) => {
@@ -10,35 +11,44 @@ const Favourites = () => {
   const dispatch = useDispatch();
 
   return (
-    <Row>
-      <Col>
-        <h1>Ciao Ciao</h1>
-      </Col>
-      {/*  <Col sm={12}>
-            <ul style={{ listStyle: 'none' }}>
-              {favouriteList.map((fav, index) => {
-                return (
-                <li key={index} className="my-4">
-                     <p>{fav.company_name}</p>
-
+    <Container className="mt-5">
+      <Link to={"/"}>
+        <Button variant="success">Back</Button>
+      </Link>
+      <h1 className="text-center">Lista preferiti:</h1>
+      <Row className="mt-5">
+        {favouriteList.map((fav, index) => {
+          return (
+            <Col xs={12} className="border p-1" key={index}>
+              <Row>
+                <Col xs={4}>
+                  <p className="fw-bold">
+                    <Link to={`/${fav.company_name}`}> {fav.company_name} </Link>{" "}
+                  </p>
+                </Col>
+                <Col xs={6}>
+                  <p>{fav.title}</p>
+                </Col>
+                <Col xs={1}>
                   <Button
                     variant="danger"
                     onClick={() => {
                       dispatch({
-                        type: 'DELETE_FROM_FAVOURITES',
+                        type: "DELETE_FROM_FAVOURITES",
                         payload: index,
-                      })
+                      });
                     }}
                   >
-                  DELETE
+                    {" "}
+                    Remove
                   </Button>
-                  
-                 
-                </li>)
-})}
-            </ul>
-          </Col> */}
-    </Row>
+                </Col>
+              </Row>
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
 };
 

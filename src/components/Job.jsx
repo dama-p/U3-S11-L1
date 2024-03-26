@@ -5,7 +5,6 @@ import { Button } from "react-bootstrap";
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();
-  /* console.log(data) */
 
   return (
     <Row className="mx-0 mt-3 p-3" style={{ border: "1px solid #00000033", borderRadius: 4 }}>
@@ -18,7 +17,7 @@ const Job = ({ data }) => {
         </a>
         <Button
           className="ms-auto"
-          onClick={(data) => {
+          onClick={() => {
             alert("aggiunto ai preferiti");
             dispatch({
               type: "ADD_TO_FAVOURITES",
