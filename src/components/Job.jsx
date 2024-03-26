@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Button } from "react-bootstrap";
+import { addToFavouritesAction } from "../redux/actions";
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();
@@ -19,10 +20,7 @@ const Job = ({ data }) => {
           className="ms-auto"
           onClick={() => {
             alert("aggiunto ai preferiti");
-            dispatch({
-              type: "ADD_TO_FAVOURITES",
-              payload: data,
-            });
+            dispatch(addToFavouritesAction(data));
           }}
         >
           + Preferiti
