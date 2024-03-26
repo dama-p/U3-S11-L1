@@ -12,7 +12,7 @@ const Job = ({ data }) => {
       <Col xs={3}>
         <Link to={`/${data.company_name}`}>{data.company_name}</Link>
       </Col>
-      <Col xs={9}>
+      <Col xs={9} className="d-flex">
         <a href={data.url} target="_blank" rel="noreferrer">
           {data.title}
         </a>
