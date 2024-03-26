@@ -2,6 +2,7 @@ import { Col, Row, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import { deleteFromFavoritesAction } from "../redux/actions";
 
 const Favourites = () => {
   const favouriteList = useSelector((state) => {
@@ -33,10 +34,7 @@ const Favourites = () => {
                   <Button
                     variant="danger"
                     onClick={() => {
-                      dispatch({
-                        type: "DELETE_FROM_FAVOURITES",
-                        payload: index,
-                      });
+                      dispatch(deleteFromFavoritesAction(index));
                     }}
                   >
                     {" "}
