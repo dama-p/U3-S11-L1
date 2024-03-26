@@ -21,7 +21,7 @@ const mainReducer = function (state = initialState, action) {
                 ...state,
                 favourites: {
                     ...state.favourites,
-                    content: state.favourites.content.concat(action.payload),
+                    content: state.favourites.content.filter((fav, index) => index !== action.payload),
                 }
             }
 

@@ -1,45 +1,45 @@
-import { Col, Row, Button } from "react-bootstrap"
+import { Col, Row, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Favourites = () => {
+  const favouriteList = useSelector((state) => {
+    return state.favourites.content;
+  });
 
-    const favouriteList = useSelector((state) => {
-        return state.favourites.content
-    })
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
-
-    return (
-        <Row>
-          <Col sm={12}>
+  return (
+    <Row>
+      <Col>
+        <h1>Ciao Ciao</h1>
+      </Col>
+      {/*  <Col sm={12}>
             <ul style={{ listStyle: 'none' }}>
-              {favouriteList.map((fav, i) => (
-                <li key={i} className="my-4">
+              {favouriteList.map((fav, index) => {
+                return (
+                <li key={index} className="my-4">
+                     <p>{fav.company_name}</p>
+
                   <Button
                     variant="danger"
                     onClick={() => {
-                      // da qui dentro dovremmo eliminare il libro selezionato dal carrello!
                       dispatch({
                         type: 'DELETE_FROM_FAVOURITES',
-                        payload: i,
+                        payload: index,
                       })
                     }}
                   >
                   DELETE
                   </Button>
                   
-                  {fav.company_name}
-                </li>
-              ))}
+                 
+                </li>)
+})}
             </ul>
-          </Col>
-          
-        </Row>
-      )
+          </Col> */}
+    </Row>
+  );
+};
 
-    
-
-
-}
-
-export default Favourites
+export default Favourites;
